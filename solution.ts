@@ -23,8 +23,6 @@ const getLength = (input: Input): number => {
   return 0;
 };
 
-
-
 class Person {
   name: string;
   age: number;
@@ -40,7 +38,6 @@ class Person {
 }
 
 
-
 type Item = {
   title: string;
   rating: number;
@@ -51,8 +48,7 @@ const filterByRating = (items: Item[]): Item[] => {
 };
 
 
-
-interface User {
+type User = {
   id: number;
   name: string;
   email: string;
@@ -61,3 +57,16 @@ interface User {
 const filterActiveUsers = (users: User[]): User[] => {
     return users.filter((user) => user.isActive === true);
 };
+
+
+interface Book {
+  title: string;
+  author: string;
+  publishedYear: number;
+  isAvailable: boolean;
+}
+
+const printBookDetails = (book: Book) => {
+  return `Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${book.isAvailable ? "Yes" : "No"}`;
+}
+
