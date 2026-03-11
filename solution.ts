@@ -1,4 +1,4 @@
-//problem 1
+
 const formatValue = (
   value: string | number | boolean,
 ): string | number | boolean => {
@@ -12,7 +12,6 @@ const formatValue = (
 };
 
 
-//Problem 2
 type Input = string | number[];
 
 const getLength = (input: Input): number => {
@@ -25,7 +24,7 @@ const getLength = (input: Input): number => {
 };
 
 
-//problem 3
+
 class Person {
   name: string;
   age: number;
@@ -41,7 +40,6 @@ class Person {
 }
 
 
-//problem 4
 
 type Item = {
   title: string;
@@ -53,3 +51,13 @@ const filterByRating = (items: Item[]): Item[] => {
 };
 
 
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  isActive: boolean;
+}
+const filterActiveUsers = (users: User[]): User[] => {
+    return users.filter((user) => user.isActive === true);
+};
