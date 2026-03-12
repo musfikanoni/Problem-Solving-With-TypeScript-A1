@@ -12,6 +12,7 @@ const formatValue = (
 };
 
 
+
 type Input = string | number[];
 
 const getLength = (input: Input): number => {
@@ -74,6 +75,7 @@ const printBookDetails = (book: Book) => {
 }
 
 
+
 function getUniqueValues(array1: (string | number)[], array2: (string | number)[]) : (string | number)[] {
   const result: (string | number)[] = [];
 
@@ -110,3 +112,21 @@ function getUniqueValues(array1: (string | number)[], array2: (string | number)[
 }
 
 
+interface Product {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+}
+
+const calculateTotalPrice = (products: Product[]): number => {
+  if (products.length === 0) return 0;
+
+  return products.reduce((total, product) => {
+    const basePrice = product.price * product.quantity;
+
+    const finalPrice = product.discount ? basePrice - (basePrice * product.discount)/100 : basePrice;
+
+    return total + finalPrice;   
+  }, 0)
+}
