@@ -23,6 +23,7 @@ const getLength = (input: Input): number => {
   return 0;
 };
 
+
 class Person {
   name: string;
   age: number;
@@ -38,6 +39,7 @@ class Person {
 }
 
 
+
 type Item = {
   title: string;
   rating: number;
@@ -46,6 +48,7 @@ type Item = {
 const filterByRating = (items: Item[]): Item[] => {
   return items.filter((item) => item.rating >= 4);
 };
+
 
 
 type User = {
@@ -69,4 +72,41 @@ interface Book {
 const printBookDetails = (book: Book) => {
   return `Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${book.isAvailable ? "Yes" : "No"}`;
 }
+
+
+function getUniqueValues(array1: (string | number)[], array2: (string | number)[]) : (string | number)[] {
+  const result: (string | number)[] = [];
+
+  for(let i = 0; i < array1.length; i++ ){
+    let exists = false;
+
+    for(let x = 0; x < result.length; x++ ){
+      if(result[x] === array1[i]){
+        exists = true;
+        break;
+      }
+    }
+
+    if(!exists){
+      result[result.length] = array1[i];
+    }
+  }
+
+  for(let i = 0; i < array2.length; i++){
+    let exists = false;
+    for(let x = 0; x < result.length; x++){
+      if(result[x] === array2[i]){
+        exists = true;
+        break;
+      }
+    }
+
+    if(!exists){
+      result[result.length] = array2[i];
+    }
+  }
+
+  return result;
+}
+
 
