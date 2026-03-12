@@ -130,3 +130,5 @@ const calculateTotalPrice = (products: Product[]): number => {
     return total + finalPrice;   
   }, 0)
 }
+
+
