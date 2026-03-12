@@ -3,9 +3,9 @@
 TypeScript-এ keyof একটি টাইপ অপারেটর যা কোনো অবজেক্ট টাইপের সকল কী (key) নিয়ে একটি ইউনিয়ন টাইপ (union type) তৈরি করে। এটি মূলত টাইপ-সেফটি বজায় রাখতে এবং ডায়নামিকভাবে প্রপার্টি অ্যাক্সেস করতে ব্যবহৃত হয়।
 
 interface Person {
-name: string;
-age: number;
-email: string;
+    name: string;
+    age: number;
+    email: string;
 }
 
 // `keyof Person` দিয়ে Person ইন্টারফেসের সকল কী-এর টাইপ
@@ -13,13 +13,13 @@ type PersonKeys = keyof Person; // "name" | "age" | "email"
 
 // Generic function যেখানে key টাইপ-সেফ
 function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
-return obj[key];
+    return obj[key];
 }
 
 const person: Person = {
-name: "Musfika",
-age: 20,
-email: "musfika@example.com"
+    name: "Musfika",
+    age: 20,
+    email: "musfika@example.com"
 };
 
 console.log(getProperty(person, "name")); // ✅ "Musfika"
@@ -40,9 +40,9 @@ Enum (Enumerations) TypeScript-এ একটি ডেটা টাইপ যা
 Numeric Enum:
 
     enum Status {
-    Pending,   // 0
-    Approved,  // 1
-    Rejected   // 2
+        Pending,   // 0
+        Approved,  // 1
+        Rejected   // 2
     }
 
     let currentStatus: Status = Status.Approved;
@@ -50,23 +50,23 @@ Numeric Enum:
 
     // মান নিজেও সেট করা যায়
     enum UserRole {
-    Admin = 5,
-    Editor = 10,
-    Viewer = 15
+        Admin = 5,
+        Editor = 10,
+        Viewer = 15
     }
     console.log(UserRole.Admin); // output: 5
 
 String Enum:
 
     enum Direction {
-    Up = "UP",
-    Down = "DOWN",
-    Left = "LEFT",
-    Right = "RIGHT"
+        Up = "UP",
+        Down = "DOWN",
+        Left = "LEFT",
+        Right = "RIGHT"
     }
 
     function move(direction: Direction) {
-    console.log(`Moving towards: ${direction}`);
+        console.log(`Moving towards: ${direction}`);
     }
 
     move(Direction.Up); // Output: Moving towards: UP
@@ -92,7 +92,7 @@ String Enum:
 
 সারসংক্ষেপ:
 
-    🔴 keyof অবজেক্ট টাইপের কী-গুলোর টাইপ বের করতে ব্যবহৃত হয়
-    🔴 enum নির্দিষ্ট কনস্ট্যান্ট ভ্যালুর গ্রুপ তৈরি করতে ব্যবহৃত হয়
+    ⭕ keyof অবজেক্ট টাইপের কী-গুলোর টাইপ বের করতে ব্যবহৃত হয়
+    ⭕ enum নির্দিষ্ট কনস্ট্যান্ট ভ্যালুর গ্রুপ তৈরি করতে ব্যবহৃত হয়
 
 এই দুটি টুল TypeScript-এ টাইপ সিস্টেমকে আরও শক্তিশালী এবং নিরাপদ করে তোলে।
